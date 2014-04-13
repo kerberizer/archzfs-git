@@ -1,0 +1,54 @@
+_kernpkgver_i686='3.14-5'
+_kernpkgver_x86_64='3.14-5'
+_kernpkgver=${_kernpkgver_x86_64}
+[ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
+_kernver="${_kernpkgver%-*}"
+_kernfullpkgver=$( echo ${_kernpkgver} | \
+    sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
+
+pkgname=('spl-modules-git')
+pkgver=0.6.2.r28.g3ceb71e_3.14
+pkgrel=1
+pkgdesc=('Solaris Porting Layer kernel modules')
+arch=('i686' 'x86_64')
+url='http://zfsonlinux.org/'
+license=('GPL')
+groups=('archzfs-git')
+depends=("spl-utils-git" "linux=${_kernpkgver}")
+makedepends=('git' "linux-headers=${_kernpkgver}")
+provides=('spl-modules' 'spl')
+conflicts=('spl')
+install='spl.install'
+source=('git+https://github.com/zfsonlinux/spl.git')
+md5sums=('SKIP')
+
+pkgver() {
+    cd "${srcdir}/spl"
+    # cutting off 'spl-' prefix that presents in the git tag
+    echo $(git describe --long | \
+        sed -r 's/^spl-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}
+}
+
+build() {
+    _kernbuildpath="/usr/lib/modules/${_kernfullpkgver}-ARCH/build"
+    _at_enable=""
+    [ "${CARCH}" == "i686" ] && _at_enable="--enable-atomic-spinlocks"
+
+    cd "${srcdir}/spl"
+    ./autogen.sh
+    ./configure --prefix=/usr \
+                --with-config=kernel \
+                --with-linux=${_kernbuildpath} \
+                ${_at_enable}
+    make
+}
+
+package() {
+    cd "${srcdir}/spl"
+    make DESTDIR="${pkgdir}" install
+    mv "${pkgdir}/lib" "${pkgdir}/usr/"
+    sed -i "s+${srcdir}++" \
+        ${pkgdir}/usr/src/spl-*/${_kernfullpkgver}-ARCH/Module.symvers
+}
+
+# vim:set ts=4 sw=4 et:

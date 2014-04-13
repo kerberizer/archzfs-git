@@ -1,0 +1,50 @@
+_kernpkgver_i686='3.14-5'
+_kernpkgver_x86_64='3.14-5'
+_kernpkgver=${_kernpkgver_x86_64}
+[ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
+_kernver="${_kernpkgver%-*}"
+_kernfullpkgver=$( echo ${_kernpkgver} | \
+    sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
+
+pkgname=('zfs-modules-git')
+pkgver=0.6.2.r253.g888f714_3.14
+pkgrel=1
+pkgdesc=('Zettabyte File System kernel modules')
+arch=('i686' 'x86_64')
+url='http://zfsonlinux.org/'
+license=('CDDL')
+groups=('archzfs-git')
+depends=("zfs-utils-git" "linux=${_kernpkgver}")
+makedepends=('git' "linux-headers=${_kernpkgver}")
+provides=('zfs-modules' 'zfs')
+conflicts=('zfs')
+install='zfs.install'
+source=('git+https://github.com/zfsonlinux/zfs.git')
+md5sums=('SKIP')
+
+pkgver() {
+    cd "${srcdir}/zfs"
+    # cutting off 'zfs-' prefix that presents in the git tag
+    echo $(git describe --long | \
+        sed -r 's/^zfs-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}
+}
+
+build() {
+    _kernbuildpath="/usr/lib/modules/${_kernfullpkgver}-ARCH/build"
+    cd "${srcdir}/zfs"
+    ./autogen.sh
+    ./configure --prefix=/usr \
+                --with-config=kernel \
+                --with-linux=${_kernbuildpath}
+    make
+}
+
+package() {
+    cd "${srcdir}/zfs"
+    make DESTDIR="${pkgdir}" install
+    mv "${pkgdir}/lib" "${pkgdir}/usr/"
+    sed -i "s+${srcdir}++" \
+        ${pkgdir}/usr/src/zfs-*/${_kernfullpkgver}-ARCH/Module.symvers
+}
+
+# vim:set ts=4 sw=4 et:

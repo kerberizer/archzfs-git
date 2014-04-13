@@ -1,0 +1,64 @@
+_kernpkgver_i686='3.14-5'
+_kernpkgver_x86_64='3.14-5'
+_kernpkgver=${_kernpkgver_x86_64}
+[ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
+_kernver="${_kernpkgver%-*}"
+
+pkgname=('zfs-utils-git')
+pkgver=0.6.2.r253.g888f714_3.14
+pkgrel=1
+pkgdesc=('Zettabyte File System support files')
+arch=('i686' 'x86_64')
+url='http://zfsonlinux.org/'
+license=('CDDL')
+groups=('archzfs-git')
+depends=('spl-modules-git')
+makedepends=('git')
+provides=('zfs-utils')
+conflicts=('zfs-utils')
+source=('git+https://github.com/zfsonlinux/zfs.git'
+        'zfs-utils.bash-completion'
+        'zfs-utils.initcpio.install'
+        'zfs-utils.initcpio.hook')
+md5sums=('SKIP'
+         '3e1c4a29c4f7d590e6a3041f2c61d6ff'
+         'ebea2b1e593a9a19efa0f7ae7451bbc7'
+         'b567a95a34759f196bf4be8061a895e5')
+
+pkgver() {
+    cd "${srcdir}/zfs"
+    # cutting off 'zfs-' prefix that presents in the git tag
+    echo $(git describe --long | \
+        sed -r 's/^zfs-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}
+}
+
+build() {
+    cd "${srcdir}/zfs"
+    ./autogen.sh
+    ./configure --prefix=/usr \
+                --sbindir=/usr/bin \
+                --libexecdir=/usr/lib \
+                --sysconfdir=/etc \
+                --with-config=user
+    make
+}
+
+package() {
+    cd "${srcdir}/zfs"
+    make DESTDIR="${pkgdir}" install
+
+    rm -rf "${pkgdir}/etc/init.d"
+    rm -rf "${pkgdir}/usr/lib/dracut"
+
+    mv "${pkgdir}/sbin/mount.zfs" "${pkgdir}/usr/bin/"
+    rmdir "${pkgdir}/sbin"
+
+    install -D -m 0644 "${srcdir}/zfs-utils.initcpio.hook" \
+        "${pkgdir}/usr/lib/initcpio/hooks/zfs"
+    install -D -m 0644 "${srcdir}/zfs-utils.initcpio.install" \
+        "${pkgdir}/usr/lib/initcpio/install/zfs"
+    install -D -m 0644 "${srcdir}/zfs-utils.bash-completion" \
+        "${pkgdir}/usr/share/bash-completion/completions/zfs"
+}
+
+# vim:set ts=4 sw=4 et:
