@@ -31,7 +31,7 @@ pkgver() {
 
 build() {
     _kernbuildpath="/usr/lib/modules/${_kernfullpkgver}-ARCH/build"
-    _at_enable=""
+    _AS_enable=""
     [ "${CARCH}" == "i686" ] && _at_enable="--enable-atomic-spinlocks"
 
     cd "${srcdir}/spl"
@@ -39,7 +39,7 @@ build() {
     ./configure --prefix=/usr \
                 --with-config=kernel \
                 --with-linux=${_kernbuildpath} \
-                ${_at_enable}
+                ${_AS_enable}
     make
 }
 

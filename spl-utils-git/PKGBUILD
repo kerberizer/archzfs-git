@@ -21,25 +21,25 @@ md5sums=('SKIP'
          'a54f0041a9e15b050f25c463f1db7449')
 
 pkgver() {
-  cd "${srcdir}/spl"
-  # cutting off 'spl-' prefix that presents in the git tag
-  echo $(git describe --long | \
-    sed -r 's/^spl-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}
+    cd "${srcdir}/spl"
+    # cutting off 'spl-' prefix that presents in the git tag
+    echo $(git describe --long | \
+        sed -r 's/^spl-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}
 }
 
 build() {
-  cd "${srcdir}/spl"
-  ./autogen.sh
-  ./configure --prefix=/usr \
-              --sbindir=/usr/bin \
-              --with-config=user
-  make
+    cd "${srcdir}/spl"
+    ./autogen.sh
+    ./configure --prefix=/usr \
+                --sbindir=/usr/bin \
+                --with-config=user
+    make
 }
 
 package() {
-  cd "${srcdir}/spl"
-  make DESTDIR="${pkgdir}" install
-  install -D -m644 "${srcdir}/spl-utils.hostid" "${pkgdir}/etc/hostid"
+    cd "${srcdir}/spl"
+    make DESTDIR="${pkgdir}" install
+    install -D -m 0644 "${srcdir}/spl-utils.hostid" "${pkgdir}/etc/hostid"
 }
 
-# vim:set ts=2 sw=2 et:
+# vim:set ts=4 sw=4 et:
