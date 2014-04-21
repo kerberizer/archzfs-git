@@ -13,18 +13,27 @@ url='http://zfsonlinux.org/'
 license=('CDDL')
 groups=('archzfs-git')
 depends=('spl-modules-git')
+optdepends=(
+    'python: arcstat.py and dbufstat.py scripts support'
+)
 makedepends=('git')
 provides=('zfs-utils')
 conflicts=('zfs-utils')
-backup=('etc/zfs/zed.d/zed.rc')
-source=('git+https://github.com/zfsonlinux/zfs.git'
-        'zfs-utils.bash-completion'
-        'zfs-utils.initcpio.install'
-        'zfs-utils.initcpio.hook')
-md5sums=('SKIP'
-         '3e1c4a29c4f7d590e6a3041f2c61d6ff'
-         'ebea2b1e593a9a19efa0f7ae7451bbc7'
-         'b567a95a34759f196bf4be8061a895e5')
+backup=(
+    'etc/zfs/zed.d/zed.rc'
+)
+source=(
+    'git+https://github.com/zfsonlinux/zfs.git'
+    'zfs-utils.bash-completion'
+    'zfs-utils.initcpio.install'
+    'zfs-utils.initcpio.hook'
+)
+md5sums=(
+    'SKIP'
+    '3e1c4a29c4f7d590e6a3041f2c61d6ff'
+    'ebea2b1e593a9a19efa0f7ae7451bbc7'
+    'b567a95a34759f196bf4be8061a895e5'
+)
 
 pkgver() {
     cd "${srcdir}/zfs"

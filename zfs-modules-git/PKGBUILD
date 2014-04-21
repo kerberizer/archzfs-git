@@ -14,8 +14,14 @@ arch=('i686' 'x86_64')
 url='http://zfsonlinux.org/'
 license=('CDDL')
 groups=('archzfs-git')
-depends=("zfs-utils-git" "linux=${_kernpkgver}")
-makedepends=('git' "linux-headers=${_kernpkgver}")
+depends=(
+    'zfs-utils-git'
+    "linux=${_kernpkgver}"
+)
+makedepends=(
+    'git'
+    "linux-headers=${_kernpkgver}"
+)
 provides=('zfs-modules' 'zfs')
 conflicts=('zfs')
 install='zfs.install'

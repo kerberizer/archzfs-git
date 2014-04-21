@@ -14,8 +14,14 @@ arch=('i686' 'x86_64')
 url='http://zfsonlinux.org/'
 license=('GPL')
 groups=('archzfs-git')
-depends=("spl-utils-git" "linux=${_kernpkgver}")
-makedepends=('git' "linux-headers=${_kernpkgver}")
+depends=(
+    'spl-utils-git'
+    "linux=${_kernpkgver}"
+)
+makedepends=(
+    'git'
+    "linux-headers=${_kernpkgver}"
+)
 provides=('spl-modules' 'spl')
 conflicts=('spl')
 install='spl.install'
