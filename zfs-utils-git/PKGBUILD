@@ -16,6 +16,7 @@ depends=('spl-modules-git')
 makedepends=('git')
 provides=('zfs-utils')
 conflicts=('zfs-utils')
+backup=('etc/zfs/zed.d/zed.rc')
 source=('git+https://github.com/zfsonlinux/zfs.git'
         'zfs-utils.bash-completion'
         'zfs-utils.initcpio.install'
