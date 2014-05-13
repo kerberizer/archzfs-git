@@ -39,7 +39,7 @@ pkgver() {
 build() {
     _kernbuildpath="/usr/lib/modules/${_kernfullpkgver}-ARCH/build"
     _AS_enable=""
-    [ "${CARCH}" == "i686" ] && _at_enable="--enable-atomic-spinlocks"
+    [ "${CARCH}" == "i686" ] && _AS_enable="--enable-atomic-spinlocks"
 
     cd "${srcdir}/spl"
     ./autogen.sh
