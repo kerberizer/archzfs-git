@@ -3,9 +3,10 @@ _kernpkgver_x86_64='3.14.3-2'
 _kernpkgver=${_kernpkgver_x86_64}
 [ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
 _kernver="${_kernpkgver%-*}"
+_kernpkgrel="${_kernpkgver##*-}"
 
 pkgname=('spl-utils-git')
-pkgver=0.6.2.r33.g89aa970_3.14.1
+pkgver=0.6.2.r38.gad3412e_3.14.3
 pkgrel=1
 pkgdesc=('Solaris Porting Layer support files')
 arch=('i686' 'x86_64')
@@ -28,8 +29,8 @@ md5sums=(
 pkgver() {
     cd "${srcdir}/spl"
     # cutting off 'spl-' prefix that presents in the git tag
-    echo $(git describe --long | \
-        sed -r 's/^spl-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}
+    echo $(git describe --long | sed -r \
+        's/^spl-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}r${_kernpkgrel}
 }
 
 build() {

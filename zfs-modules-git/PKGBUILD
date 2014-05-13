@@ -3,6 +3,7 @@ _kernpkgver_x86_64='3.14.3-2'
 _kernpkgver=${_kernpkgver_x86_64}
 [ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
 _kernver="${_kernpkgver%-*}"
+_kernpkgrel="${_kernpkgver##*-}"
 _kernfullpkgver=$( echo ${_kernpkgver} | \
     sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
 
@@ -31,8 +32,8 @@ md5sums=('SKIP')
 pkgver() {
     cd "${srcdir}/zfs"
     # cutting off 'zfs-' prefix that presents in the git tag
-    echo $(git describe --long | \
-        sed -r 's/^zfs-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}
+    echo $(git describe --long | sed -r \
+        's/^zfs-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}r${_kernpkgrel}
 }
 
 build() {
