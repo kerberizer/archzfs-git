@@ -4,7 +4,7 @@ These are Arch Linux PKGBUILDs for ZFS on Linux (ZoL) based on the Git master br
 
 There is also a publicly available [repository](http://kerberia.net/archlinux/repo/archzfs-git) with packages for both the `i686` and `x86_64` architectures, but these packages are also provided *as is*, and the `i686` ones in particular have not been tested at all. The current package versions in the repo are as follows:
 
-* spl-modules-git-0.6.3.r9.gf9bde4f_3.16.3r1-1
-* spl-utils-git-0.6.3.r9.gf9bde4f_3.16.3r1-1
-* zfs-modules-git-0.6.3.r77.g6d9036f_3.16.3r1-1
-* zfs-utils-git-0.6.3.r77.g6d9036f_3.16.3r1-1
+* spl-modules-git-0.6.3.r10.ge302072_3.16.3r1-1
+* spl-utils-git-0.6.3.r10.ge302072_3.16.3r1-1
+* zfs-modules-git-0.6.3.r81.gebcf493_3.16.3r1-1
+* zfs-utils-git-0.6.3.r81.gebcf493_3.16.3r1-1
