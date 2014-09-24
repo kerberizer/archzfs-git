@@ -6,5 +6,5 @@ There is also a publicly available [repository](http://kerberia.net/archlinux/re
 
 * spl-modules-git-0.6.3.r10.ge302072_3.16.3r1-1
 * spl-utils-git-0.6.3.r10.ge302072_3.16.3r1-1
-* zfs-modules-git-0.6.3.r81.gebcf493_3.16.3r1-1
-* zfs-utils-git-0.6.3.r81.gebcf493_3.16.3r1-1
+* zfs-modules-git-0.6.3.r92.gbee6665_3.16.3r1-1
+* zfs-utils-git-0.6.3.r92.gbee6665_3.16.3r1-1
