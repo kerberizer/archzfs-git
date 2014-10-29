@@ -61,9 +61,6 @@ package() {
     rm -rf "${pkgdir}/etc/init.d"
     rm -rf "${pkgdir}/usr/lib/dracut"
 
-    mv "${pkgdir}/sbin/mount.zfs" "${pkgdir}/usr/bin/"
-    rmdir "${pkgdir}/sbin"
-
     install -D -m 0644 "${srcdir}/zfs-utils.initcpio.hook" \
         "${pkgdir}/usr/lib/initcpio/hooks/zfs"
     install -D -m 0644 "${srcdir}/zfs-utils.initcpio.install" \
