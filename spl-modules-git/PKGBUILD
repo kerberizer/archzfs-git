@@ -1,5 +1,5 @@
-_kernpkgver_i686='3.17.1-1'
-_kernpkgver_x86_64='3.17.1-1'
+_kernpkgver_i686='3.17.2-1'
+_kernpkgver_x86_64='3.17.2-1'
 _kernpkgver=${_kernpkgver_x86_64}
 [ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
 _kernver="${_kernpkgver%-*}"
