@@ -3,5 +3,5 @@ These are Arch Linux PKGBUILDs for ZFS on Linux (ZoL) based on the Git master br
 **Important notice:** For the ZFS datasets to be mounted and shared properly, it is imperative to enable `zfs.target` in systemd. Any old `zfs.service` should be disabled accordingly.
 * spl-modules-git-0.6.3.r50.g917fef2_3.17.3r1-1
 * spl-utils-git-0.6.3.r50.g917fef2_3.17.3r1-1
-* zfs-modules-git-0.6.3.r147.g33c0819_3.17.3r1-1
-* zfs-utils-git-0.6.3.r147.g33c0819_3.17.3r1-1
+* zfs-modules-git-0.6.3.r152.gbc9f413_3.17.3r1-1
+* zfs-utils-git-0.6.3.r152.gbc9f413_3.17.3r1-1
