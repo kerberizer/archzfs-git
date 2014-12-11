@@ -3,7 +3,7 @@ These are Arch Linux PKGBUILDs for ZFS on Linux (ZoL) based on the Git master br
 **Important notice:** For the ZFS datasets to be mounted and shared properly, it is imperative to enable `zfs.target` in systemd. Any old `zfs.service` should be disabled accordingly.
 
 There is also a publicly available [repository](http://kerberia.net/archlinux/repo/archzfs-git) with packages for both the `i686` and `x86_64` architectures, but these packages are also provided *as is*, and the `i686` ones in particular have not been tested at all. The current package versions in the repo are as follows:
-* spl-modules-git-0.6.3.r52.g52479ec_3.17.4r1-1
-* spl-utils-git-0.6.3.r52.g52479ec_3.17.4r1-1
-* zfs-modules-git-0.6.3.r159.gc944be5_3.17.4r1-1
-* zfs-utils-git-0.6.3.r159.gc944be5_3.17.4r1-1
+* spl-modules-git-0.6.3.r52.g52479ec_3.17.6r1-1
+* spl-utils-git-0.6.3.r52.g52479ec_3.17.6r1-1
+* zfs-modules-git-0.6.3.r159.gc944be5_3.17.6r1-1
+* zfs-utils-git-0.6.3.r159.gc944be5_3.17.6r1-1
