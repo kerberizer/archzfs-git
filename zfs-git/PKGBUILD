@@ -7,55 +7,51 @@ _kernpkgrel="${_kernpkgver##*-}"
 _kernfullpkgver=$( echo ${_kernpkgver} | \
     sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
 
-pkgname=('spl-modules-git')
-pkgver=0.6.3.r53.ga3c1eb7_3.17.6r1
+pkgname=('zfs-git')
+pkgver=1
 pkgrel=1
-pkgdesc=('Solaris Porting Layer kernel modules')
+pkgdesc=('Zettabyte File System kernel modules')
 arch=('i686' 'x86_64')
 url='http://zfsonlinux.org/'
-license=('GPL')
+license=('CDDL')
 groups=('archzfs-git')
 depends=(
-    'spl-utils-git'
+    'zfs-utils-git'
     "linux=${_kernpkgver}"
 )
 makedepends=(
     'git'
     "linux-headers=${_kernpkgver}"
 )
-provides=('spl-modules' 'spl')
-conflicts=('spl')
-install='spl.install'
-source=('git+https://github.com/zfsonlinux/spl.git')
+provides=('zfs')
+conflicts=('zfs')
+install='zfs.install'
+source=('git+https://github.com/zfsonlinux/zfs.git')
 md5sums=('SKIP')
 
 pkgver() {
-    cd "${srcdir}/spl"
-    # cutting off 'spl-' prefix that presents in the git tag
+    cd "${srcdir}/zfs"
+    # cutting off 'zfs-' prefix that presents in the git tag
     echo $(git describe --long | sed -r \
-        's/^spl-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}r${_kernpkgrel}
+        's/^zfs-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}r${_kernpkgrel}
 }
 
 build() {
     _kernbuildpath="/usr/lib/modules/${_kernfullpkgver}-ARCH/build"
-    _AS_enable=""
-    [ "${CARCH}" == "i686" ] && _AS_enable="--enable-atomic-spinlocks"
-
-    cd "${srcdir}/spl"
+    cd "${srcdir}/zfs"
     ./autogen.sh
     ./configure --prefix=/usr \
                 --with-config=kernel \
-                --with-linux=${_kernbuildpath} \
-                ${_AS_enable}
+                --with-linux=${_kernbuildpath}
     make
 }
 
 package() {
-    cd "${srcdir}/spl"
+    cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
     mv "${pkgdir}/lib" "${pkgdir}/usr/"
     sed -i "s+${srcdir}++" \
-        ${pkgdir}/usr/src/spl-*/${_kernfullpkgver}-ARCH/Module.symvers
+        "${pkgdir}"/usr/src/zfs-*/${_kernfullpkgver}-ARCH/Module.symvers
 }
 
 # vim:set ts=4 sw=4 et:

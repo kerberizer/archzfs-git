@@ -13,7 +13,7 @@ arch=('i686' 'x86_64')
 url='http://zfsonlinux.org/'
 license=('CDDL')
 groups=('archzfs-git')
-depends=('spl-modules-git')
+depends=('spl-git')
 optdepends=(
     'python: arcstat.py and dbufstat.py scripts support'
 )
