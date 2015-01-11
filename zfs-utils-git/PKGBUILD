@@ -50,6 +50,7 @@ build() {
                 --sbindir=/usr/bin \
                 --libexecdir=/usr/lib \
                 --sysconfdir=/etc \
+                --with-udevdir=/usr/lib/udev \
                 --with-config=user
     make
 }
