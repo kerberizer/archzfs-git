@@ -8,5 +8,5 @@ There is also a publicly available [repository](http://kerberia.net/archlinux/re
 * `grub-zfs-2.02.beta2-1`
 * `spl-git-0.6.3.r68.g9099312_3.18.2r2-1`
 * `spl-utils-git-0.6.3.r68.g9099312_3.18.2r2-1`
-* `zfs-git-0.6.3.r178.g6e9710f_3.18.2r2-1`
-* `zfs-utils-git-0.6.3.r178.g6e9710f_3.18.2r2-1`
+* `zfs-git-0.6.3.r179.g3c832b8_3.18.2r2-1`
+* `zfs-utils-git-0.6.3.r179.g3c832b8_3.18.2r2-1`
