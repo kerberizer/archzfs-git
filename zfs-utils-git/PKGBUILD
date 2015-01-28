@@ -15,7 +15,7 @@ license=('CDDL')
 groups=('archzfs-git')
 depends=('spl-git')
 optdepends=(
-    'python: arcstat.py and dbufstat.py scripts support'
+    'python: arcstat.py, arc_summary.py and dbufstat.py scripts support'
 )
 makedepends=('git')
 provides=('zfs-utils')
