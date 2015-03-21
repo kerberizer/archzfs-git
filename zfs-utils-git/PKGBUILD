@@ -6,7 +6,7 @@ _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 
 pkgname=('zfs-utils-git')
-pkgver=0.6.3.r242.g5c3f61e_3.19.2r1-1
+pkgver=0.6.3.r245.gbc88866_3.19.2r1-1
 pkgrel=1
 pkgdesc=('Zettabyte File System support files')
 arch=('i686' 'x86_64')
