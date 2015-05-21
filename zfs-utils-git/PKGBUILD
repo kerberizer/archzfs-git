@@ -49,6 +49,7 @@ build() {
     ./configure --prefix=/usr \
                 --sbindir=/usr/bin \
                 --libexecdir=/usr/lib \
+                --with-mounthelperdir=/usr/bin \
                 --sysconfdir=/etc \
                 --with-udevdir=/usr/lib/udev \
                 --with-config=user
