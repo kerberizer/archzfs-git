@@ -6,7 +6,7 @@ _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 
 pkgname=('spl-utils-git')
-pkgver=0.6.4.r12.g77ab5dd_4.1.2r2
+pkgver=0.6.4.r13.g37d7cd9_4.1.2r2
 pkgrel=1
 pkgdesc=('Solaris Porting Layer support files')
 arch=('i686' 'x86_64')
