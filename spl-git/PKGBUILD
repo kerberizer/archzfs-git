@@ -8,7 +8,7 @@ _kernfullpkgver=$( echo ${_kernpkgver} | \
     sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
 
 pkgname=('spl-git')
-pkgver=0.6.5.r35.ge843553_4.3.3r3
+pkgver=0.6.5.r38.g16522ac_4.3.3r3
 pkgrel=1
 pkgdesc=('Solaris Porting Layer kernel modules')
 arch=('i686' 'x86_64')
