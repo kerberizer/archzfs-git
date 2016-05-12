@@ -1,12 +1,12 @@
-_kernpkgver_i686='4.5.3-1'
-_kernpkgver_x86_64='4.5.3-1'
+_kernpkgver_i686='4.5.4-1'
+_kernpkgver_x86_64='4.5.4-1'
 _kernpkgver=${_kernpkgver_x86_64}
 [ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
 _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 
 pkgname=('zfs-utils-git')
-pkgver=0.6.5.r243.gb3744ae_4.5.3r1
+pkgver=0.6.5.r253.ga9bb2b6_4.5.4r1
 pkgrel=1
 pkgdesc='Zettabyte File System support files'
 arch=('i686' 'x86_64')
