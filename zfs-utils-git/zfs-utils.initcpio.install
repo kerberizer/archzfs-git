@@ -29,7 +29,9 @@ build() {
         /lib/udev/vdev_id \
         /lib/udev/zvol_id
 
+    # libgcc_s.so.1 must be installed for pthread_cancel to work
     map add_file \
+        /usr/lib/libgcc_s.so.1 \
         /lib/udev/rules.d/60-zvol.rules \
         /lib/udev/rules.d/69-vdev.rules \
         /lib/udev/rules.d/90-zfs.rules
