@@ -33,7 +33,7 @@ md5sums=(
     'SKIP'
     'c6339c85b1918ad9e3d952d0190c0960'
     'ebea2b1e593a9a19efa0f7ae7451bbc7'
-    '27242f44daf39f107bcc20e60f322ffe'
+    '4bc6c1de6fe3aa6d1ea178f29ba36f80'
 )
 
 pkgver() {
