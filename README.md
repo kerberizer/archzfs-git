@@ -12,5 +12,5 @@ There is also a publicly available [repository](http://kerberia.net/archlinux/re
 * `grub-zfs-2.02.beta2-1`
 * `spl-git-0.7.0.rc1.r4.g8acfb2b_4.7.4r1-1`
 * `spl-utils-git-0.7.0.rc1.r4.g8acfb2b_4.7.4r1-1`
-* `zfs-git-0.7.0.rc1.r34.g160987b_4.7.4r1-1`
-* `zfs-utils-git-0.7.0.rc1.r34.g160987b_4.7.4r1-1`
+* `zfs-git-0.7.0.rc1.r41.g7571033_4.7.4r1-1`
+* `zfs-utils-git-0.7.0.rc1.r41.g7571033_4.7.4r1-1`
