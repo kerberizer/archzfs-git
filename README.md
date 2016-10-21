@@ -10,7 +10,7 @@ Since the support in [GRUB](https://www.gnu.org/software/grub/) for ZFS tends to
 
 There is also a publicly available [repository](http://kerberia.net/archlinux/repo/archzfs-git) with packages for both the `i686` and `x86_64` architectures, but these packages are also provided *as is*, and the `i686` ones in particular have not been tested at all. The current package versions in the repo are as follows:
 * `grub-zfs-2.02.beta2-1`
-* `spl-git-0.7.0.rc1.r11.gae7eda1_4.8.2r1-1`
-* `spl-utils-git-0.7.0.rc1.r11.gae7eda1_4.8.2r1-1`
-* `zfs-git-0.7.0.rc1.r143.ge4ffa98_4.8.2r1-1`
-* `zfs-utils-git-0.7.0.rc1.r143.ge4ffa98_4.8.2r1-1`
+* `spl-git-0.7.0.rc1.r11.gae7eda1_4.8.3r1-1`
+* `spl-utils-git-0.7.0.rc1.r11.gae7eda1_4.8.3r1-1`
+* `zfs-git-0.7.0.rc1.r144.g24cdeaf_4.8.3r1-1`
+* `zfs-utils-git-0.7.0.rc1.r144.g24cdeaf_4.8.3r1-1`
