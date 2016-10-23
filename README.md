@@ -1,4 +1,6 @@
-These are Arch Linux PKGBUILDs for ZFS on Linux (ZoL) based on the Git master branch. They are based on the wonderful work done by [@demizer](https://github.com/demizer) at [demizer/archzfs](https://github.com/demizer/archzfs). The PKGBUILDs are here for information purposes and are **not** supposed to be used on production systems unless you really know what you are doing.
+These are [Arch](https://www.archlinux.org/) Linux [PKGBUILDs](https://wiki.archlinux.org/index.php/PKGBUILD) for [ZFS on Linux](http://zfsonlinux.org/) (ZoL) based on the [master branch](https://github.com/zfsonlinux/zfs).
+
+The PKGBUILDs were started as a fork of the wonderful work done by [@demizer](https://github.com/demizer) to be tailored for my own needs. They have thus since diverged in some ways from the original. Feel free to use them if you like—I tend to update them pretty often—but please also understand that, unfortunately, **I cannot offer any support for them**. Unless you really know what you're doing, I strongly suggest that you instead use the semi-official packages at [archzfs/archzfs](https://github.com/archzfs/archzfs).
 
 **Important notice:** ZFS will fail to load properly the pools and datasets without the right systemd units enabled. A [preset](https://www.freedesktop.org/software/systemd/man/systemd.preset.html) file with sane defaults is included. It can be easily applied by e.g. running the following command:
 
@@ -6,9 +8,9 @@ These are Arch Linux PKGBUILDs for ZFS on Linux (ZoL) based on the Git master br
 systemctl preset \
     $(tail -n +2 /usr/lib/systemd/system-preset/50-zfs.preset | cut -d ' ' -f 2)
 ```
-Since the support in [GRUB](https://www.gnu.org/software/grub/) for ZFS tends to lag behind ZoL development, a separate `grub-zfs` package is provided with support for the latest ZFS pool feature flags. With the the standard [GRUB package](https://www.archlinux.org/packages/core/x86_64/grub/) from Arch's core repo the system boots, but grub-install cannot recognize the ZFS pool devices as such. Many thanks to [@dweeezil](https://github.com/dweeezil) for having published the needed patches [here on GitHub](https://github.com/dweeezil/grub/commits/zfs).
+**Notice:** You'll need a recent version of [GRUB](https://www.gnu.org/software/grub/) to be able to boot from a ZFS pool, especially one that has more feature flags enabled. The official [GRUB package](https://www.archlinux.org/packages/core/x86_64/grub/) from Arch's core repo should in most cases work fine. Alternatively, the [grub-git](https://aur.archlinux.org/packages/grub-git/) package from AUR may be needed instead. The `grub-zfs` package that was included previously has been discontinued as it got badly outdated and wasn't really needed any more.
 
-There is also a publicly available [repository](http://kerberia.net/archlinux/repo/archzfs-git) with packages for both the `i686` and `x86_64` architectures, but these packages are also provided *as is*, and the `i686` ones in particular have not been tested at all. The current package versions in the repo are as follows:
+There is a publicly available [repository](http://kerberia.net/archlinux/repo/archzfs-git) with prebuilt, binary packages for both the `i686` and `x86_64` architectures, but these packages are also provided **as is**. In particular, the `i686` packages are not being tested and may even be dropped altogether at some point. The current package versions in the repo are as follows:
 * `grub-zfs-2.02.beta2-1`
 * `spl-git-0.7.0.rc1.r11.gae7eda1_4.8.4r1-1`
 * `spl-utils-git-0.7.0.rc1.r11.gae7eda1_4.8.4r1-1`
