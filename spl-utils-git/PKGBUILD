@@ -1,12 +1,12 @@
-_kernpkgver_i686='4.8.10-1'
-_kernpkgver_x86_64='4.8.10-1'
+_kernpkgver_i686='4.8.11-1'
+_kernpkgver_x86_64='4.8.11-1'
 _kernpkgver=${_kernpkgver_x86_64}
 [ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
 _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 
 pkgname=('spl-utils-git')
-pkgver=0.7.0.rc2.r2.gcbba714_4.8.10r1
+pkgver=0.7.0.rc2.r2.gcbba714_4.8.11r1
 pkgrel=1
 pkgdesc='Solaris Porting Layer support files'
 arch=('i686' 'x86_64')
