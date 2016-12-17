@@ -14,7 +14,7 @@ systemctl preset \
 
 There is a publicly available [repository](http://kerberia.net/archlinux/repo/archzfs-git) with prebuilt, binary packages for both the `i686` and `x86_64` architectures, but these packages are also provided **as is**. In particular, the `i686` packages are not being tested at all and may even be dropped altogether at some point. The current package versions in the repo are as follows:
 * `grub-git-2.02.beta3.46.g0d23457-1`
-* `spl-git-0.7.0.rc2.r4.gf200b83_4.8.13r1-1`
-* `spl-utils-git-0.7.0.rc2.r4.gf200b83_4.8.13r1-1`
-* `zfs-git-0.7.0.rc2.r78.gd57f03e_4.8.13r1-1`
-* `zfs-utils-git-0.7.0.rc2.r78.gd57f03e_4.8.13r1-1`
+* `spl-git-0.7.0.rc2.r6.g9c9ad84_4.8.13r1-1`
+* `spl-utils-git-0.7.0.rc2.r6.g9c9ad84_4.8.13r1-1`
+* `zfs-git-0.7.0.rc2.r86.g1528bfdb1_4.8.13r1-1`
+* `zfs-utils-git-0.7.0.rc2.r86.g1528bfdb1_4.8.13r1-1`
