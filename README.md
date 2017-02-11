@@ -16,5 +16,5 @@ There is a publicly available [repository](http://kerberia.net/archlinux/repo/ar
 * `grub-git-2.02.rc1.3.g529818738-1`
 * `spl-git-0.7.0.rc3.r2.g9704820_4.9.8r1-1`
 * `spl-utils-git-0.7.0.rc3.r2.g9704820_4.9.8r1-1`
-* `zfs-git-0.7.0.rc3.r87.gb291029e8_4.9.8r1-1`
-* `zfs-utils-git-0.7.0.rc3.r87.gb291029e8_4.9.8r1-1`
+* `zfs-git-0.7.0.rc3.r89.g717afc132_4.9.8r1-1`
+* `zfs-utils-git-0.7.0.rc3.r89.g717afc132_4.9.8r1-1`
