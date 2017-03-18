@@ -13,8 +13,8 @@ systemctl preset \
 **Notice:** You'll need a recent version of [GRUB](https://www.gnu.org/software/grub/) to be able to boot from a ZFS pool, especially from one that has more feature flags enabled. The official [GRUB package](https://www.archlinux.org/packages/core/x86_64/grub/) from Arch's core repo should in most cases work fine. Alternatively, the [grub-git](https://aur.archlinux.org/packages/grub-git/) package from AUR may be needed instead. The `grub-zfs` package that was included previously has been discontinued, as it got badly outdated and wasn't really needed any more, and is replaced in the repo by `grub-git`.
 
 There is a publicly available [repository](http://kerberia.net/archlinux/repo/archzfs-git) with prebuilt, binary packages for both the `i686` and `x86_64` architectures, but these packages are also provided **as is**. In particular, the `i686` packages are not being tested at all and may even be dropped altogether at some point. The current package versions in the repo are as follows:
-* `grub-git-2.02.rc1.r12.gc42cb97f0-1`
-* `spl-git-0.7.0.rc3.r4.ge0aacd9_4.10.2r1-1`
-* `spl-utils-git-0.7.0.rc3.r4.ge0aacd9_4.10.2r1-1`
-* `zfs-git-0.7.0.rc3.r142.g09ec770c2_4.10.2r1-1`
-* `zfs-utils-git-0.7.0.rc3.r142.g09ec770c2_4.10.2r1-1`
+* `grub-git-2.02.rc2.r0.g8014b7b33-1`
+* `spl-git-0.7.0.rc3.r4.ge0aacd9_4.10.3r1-1`
+* `spl-utils-git-0.7.0.rc3.r4.ge0aacd9_4.10.3r1-1`
+* `zfs-git-0.7.0.rc3.r143.g8614ddf9b_4.10.3r1-1`
+* `zfs-utils-git-0.7.0.rc3.r143.g8614ddf9b_4.10.3r1-1`
