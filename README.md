@@ -17,4 +17,4 @@ There is a publicly available [repository](http://kerberia.net/archlinux/repo/ar
 * `spl-git-0.7.0.rc4.r1.g8f87971_4.10.13r1-1`
 * `spl-utils-git-0.7.0.rc4.r1.g8f87971_4.10.13r1-1`
 * `zfs-git-0.7.0.rc4.r19.gbec1067d5_4.10.13r1-1`
-* `zfs-utils-git-0.7.0.rc4.r19.gbec1067d5_4.10.13r1-1`
+* `zfs-utils-git-0.7.0.rc4.r20.gf871ab6ea_4.10.13r1-1`
