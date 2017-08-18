@@ -26,14 +26,14 @@ backup=(
 source=(
     'git+https://github.com/zfsonlinux/zfs.git'
     'zfs-utils.bash-completion'
-    'zfs-utils.initcpio.install'
     'zfs-utils.initcpio.hook'
+    'zfs-utils.initcpio.install'
 )
-md5sums=(
+sha512sums=(
     'SKIP'
-    'c6339c85b1918ad9e3d952d0190c0960'
-    'f792a90c8f16df235c062f1b44f848fe'
-    '4bc6c1de6fe3aa6d1ea178f29ba36f80'
+    '6897955ea9b543e52fc99fd04f81f0c893ce26bb70a56c1029dd7cb46047d61fdc11abeb7daa681d50deb2f9854bb194385830656babb685db2c450d9956c892'
+    '6d7082506a3a1253cfd0e0cb8089062b1716f9969d4c71f2098da07d14a81c58313f90a393091cdcfbaef0755141f66e9f4670496b39fa08da96a53ddffc6f0d'
+    '27a3b51048c79a0ee2c43a79a9714fc2cf9a2d350c256c43678c06accdcfd50d1adc965e8ffa7eeb6616c2901bf314bfeba363b378f98d6bb3245863b41d63a4'
 )
 
 pkgver() {

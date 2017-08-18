@@ -21,9 +21,9 @@ source=(
     'git+https://github.com/zfsonlinux/spl.git'
     'spl-utils.hostid'
 )
-md5sums=(
+sha512sums=(
     'SKIP'
-    'a54f0041a9e15b050f25c463f1db7449'
+    'ea71bb243b0b2db729b9eb88e3c55a3f490fbff23457825051224a1fe6e6d3f480590cfa3a4a6b12c622d6ac366feb03cd17004ed004cb3f0d52731626946679'
 )
 
 pkgver() {

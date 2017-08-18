@@ -27,7 +27,7 @@ provides=('zfs')
 conflicts=('zfs')
 install='zfs.install'
 source=('git+https://github.com/zfsonlinux/zfs.git')
-md5sums=('SKIP')
+sha512sums=('SKIP')
 
 pkgver() {
     cd "${srcdir}/zfs"
