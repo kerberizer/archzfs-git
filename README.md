@@ -15,5 +15,5 @@ systemctl preset \
 * `grub-git-2.02.r63.g1deebd85e-1`
 * `spl-git-0.7.0.r12.g9df9692_4.12.8r2-1`
 * `spl-utils-git-0.7.0.r12.g9df9692_4.12.8r2-1`
-* `zfs-git-0.7.0.r33.g08de8c16f_4.12.8r2-1`
-* `zfs-utils-git-0.7.0.r33.g08de8c16f_4.12.8r2-1`
+* `zfs-git-0.7.0.r46.g2209e4098_4.12.8r2-1`
+* `zfs-utils-git-0.7.0.r46.g2209e4098_4.12.8r2-1`
