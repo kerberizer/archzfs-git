@@ -10,7 +10,7 @@ The PKGBUILDs were started as a fork of the wonderful work done by [@demizer](ht
 systemctl preset \
     $(tail -n +2 /usr/lib/systemd/system-preset/50-zfs.preset | cut -d ' ' -f 2)
 ```
-**Notice:** You'll need a recent version of [GRUB](https://www.gnu.org/software/grub/) to be able to boot from a ZFS pool, especially from one that has more feature flags enabled. The official [GRUB package](https://www.archlinux.org/packages/core/x86_64/grub/) from Arch's core repo should in most cases work fine. Alternatively, the [grub-git](https://aur.archlinux.org/packages/grub-git/) package from AUR may be needed instead. The `grub-zfs` package that was included previously has been discontinued, as it got badly outdated and wasn't really needed any more, and is replaced in the repo by `grub-git`.
+* `grub-git-2.02.r84.g78d2b81bd-1`
 * `spl-git-0.7.0.r12.g9df9692_4.12.10r1-1`
 * `spl-utils-git-0.7.0.r12.g9df9692_4.12.10r1-1`
 * `zfs-git-0.7.0.r63.g4c5b89f59_4.12.10r1-1`
