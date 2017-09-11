@@ -10,8 +10,7 @@ The PKGBUILDs were started as a fork of the wonderful work done by [@demizer](ht
 systemctl preset \
     $(tail -n +2 /usr/lib/systemd/system-preset/50-zfs.preset | cut -d ' ' -f 2)
 ```
-* `grub-git-2.02.r84.g78d2b81bd-1`
-* `spl-git-0.7.0.r12.g9df9692_4.12.10r1-1`
-* `spl-utils-git-0.7.0.r12.g9df9692_4.12.10r1-1`
-* `zfs-git-0.7.0.r63.g4c5b89f59_4.12.10r1-1`
-* `zfs-utils-git-0.7.0.r63.g4c5b89f59_4.12.10r1-1`
+* `spl-git-0.7.0.r12.g9df9692_4.12.12r1-1`
+* `spl-utils-git-0.7.0.r12.g9df9692_4.12.12r1-1`
+* `zfs-git-0.7.0.r67.g835db5859_4.12.12r1-1`
+* `zfs-utils-git-0.7.0.r67.g835db5859_4.12.12r1-1`
