@@ -6,8 +6,7 @@ The PKGBUILDs were started as a fork of the wonderful work done by [@demizer](ht
 
 **Important notice:** ZFS will fail to load properly the pools and datasets without the right systemd units enabled. A [preset](https://www.freedesktop.org/software/systemd/man/systemd.preset.html) file with sane defaults is included. It can be easily applied by e.g. running the following command:
 
-``` shell-script
-* `spl-git-0.7.0.r13.ge8474f9_4.13.3r1-1`
-* `spl-utils-git-0.7.0.r13.ge8474f9_4.13.3r1-1`
-* `zfs-git-0.7.0.r95.g269db7a4b_4.13.3r1-1`
-* `zfs-utils-git-0.7.0.r95.g269db7a4b_4.13.3r1-1`
+* `spl-git-0.7.0.r13.ge8474f9_4.13.4r1-1`
+* `spl-utils-git-0.7.0.r13.ge8474f9_4.13.4r1-1`
+* `zfs-git-0.7.0.r103.ga0430cc5a_4.13.4r1-1`
+* `zfs-utils-git-0.7.0.r103.ga0430cc5a_4.13.4r1-1`

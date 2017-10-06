@@ -1,5 +1,5 @@
-_kernpkgver_i686='4.13.3-1'
-_kernpkgver_x86_64='4.13.3-1'
+_kernpkgver_i686='4.13.4-1'
+_kernpkgver_x86_64='4.13.4-1'
 _kernpkgver=${_kernpkgver_x86_64}
 [ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
 _kernver="${_kernpkgver%-*}"
@@ -8,7 +8,7 @@ _kernfullpkgver=$( echo ${_kernpkgver} | \
     sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
 
 pkgname=('spl-git')
-pkgver=0.7.0.r13.ge8474f9_4.13.3r1
+pkgver=0.7.0.r13.ge8474f9_4.13.4r1
 pkgrel=1
 pkgdesc='Solaris Porting Layer kernel modules'
 arch=('i686' 'x86_64')
