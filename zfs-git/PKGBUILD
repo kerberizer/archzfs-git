@@ -1,5 +1,5 @@
 _kernpkgver_i686='4.13.11-1'
-_kernpkgver_x86_64='4.13.11-1'
+_kernpkgver_x86_64='4.13.12-1'
 _kernpkgver=${_kernpkgver_x86_64}
 [ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
 _kernver="${_kernpkgver%-*}"
@@ -8,7 +8,7 @@ _kernfullpkgver=$( echo ${_kernpkgver} | \
     sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
 
 pkgname=('zfs-git')
-pkgver=0.7.0.r163.gdf1f129bc_4.13.11r1
+pkgver=0.7.0.r186.g99834d195_4.13.11r1
 pkgrel=1
 pkgdesc='Zettabyte File System kernel modules'
 arch=('i686' 'x86_64')
