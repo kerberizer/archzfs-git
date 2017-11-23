@@ -1,17 +1,14 @@
-_kernpkgver_i686='4.13.11-1'
-_kernpkgver_x86_64='4.13.12-1'
-_kernpkgver=${_kernpkgver_x86_64}
-[ "${CARCH}" == "i686" ] && _kernpkgver=${_kernpkgver_i686}
+_kernpkgver='4.13.12-1'
 _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 _kernfullpkgver=$( echo ${_kernpkgver} | \
     sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
 
 pkgname=('spl-git')
-pkgver=0.7.0.r20.g35a44fc_4.13.11r1
+pkgver=0.7.0.r21.ged19bcc_4.13.12r1
 pkgrel=1
 pkgdesc='Solaris Porting Layer kernel modules'
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url='http://zfsonlinux.org/'
 license=('GPL')
 groups=('archzfs-git')
@@ -38,15 +35,12 @@ pkgver() {
 
 build() {
     _kernbuildpath="/usr/lib/modules/${_kernfullpkgver}-ARCH/build"
-    _AS_enable=""
-    [ "${CARCH}" == "i686" ] && _AS_enable="--enable-atomic-spinlocks"
 
     cd "${srcdir}/spl"
     ./autogen.sh
     ./configure --prefix=/usr \
                 --with-config=kernel \
-                --with-linux=${_kernbuildpath} \
-                ${_AS_enable}
+                --with-linux=${_kernbuildpath}
     make
 }
 
