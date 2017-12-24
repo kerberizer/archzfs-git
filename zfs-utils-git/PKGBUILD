@@ -1,9 +1,9 @@
-_kernpkgver='4.14.5-1'
+_kernpkgver='4.14.8-1'
 _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 
 pkgname=('zfs-utils-git')
-pkgver=0.7.0.r213.gf6940bb9e_4.14.5r1
+pkgver=0.7.0.r225.g823d48bfb_4.14.8r1
 pkgrel=1
 pkgdesc='Zettabyte File System support files'
 arch=('x86_64')
