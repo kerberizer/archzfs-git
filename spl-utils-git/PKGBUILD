@@ -1,9 +1,9 @@
-_kernpkgver='4.14.10-1'
+_kernpkgver='4.14.11-1'
 _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 
 pkgname=('spl-utils-git')
-pkgver=0.7.0.r22.gc9821f1_4.14.10r1
+pkgver=0.7.0.r22.gc9821f1_4.14.11r1
 pkgrel=1
 pkgdesc='Solaris Porting Layer support files'
 arch=('x86_64')
