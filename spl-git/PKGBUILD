@@ -1,11 +1,11 @@
-_kernpkgver='4.15.10-1'
+_kernpkgver='4.15.11-1'
 _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
 _kernfullpkgver=$( echo ${_kernpkgver} | \
     sed 's/\(^[[:digit:]]\.[[:digit:]]\+\)\(-[[:digit:]]\+$\)/\1.0\2/' )
 
 pkgname=('spl-git')
-pkgver=0.7.0.r31.g43983eb_4.15.10r1
+pkgver=0.7.0.r31.g43983eb_4.15.11r1
 pkgrel=1
 pkgdesc='Solaris Porting Layer kernel modules'
 arch=('x86_64')
