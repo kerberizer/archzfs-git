@@ -20,11 +20,24 @@ makedepends=(
     'git'
     "linux-headers=${_kernpkgver}"
 )
-provides=('zfs')
-conflicts=('zfs')
+provides=(
+    'zfs'
+    'spl'
+)
+conflicts=(
+    'zfs'
+    'spl'
+)
+replaces=(
+    'spl'
+)
 install='zfs.install'
-source=('git+https://github.com/zfsonlinux/zfs.git')
-sha512sums=('SKIP')
+source=(
+    'git+https://github.com/zfsonlinux/zfs.git'
+)
+sha512sums=(
+    'SKIP'
+)
 
 pkgver() {
     cd "${srcdir}/zfs"
@@ -48,7 +61,7 @@ package() {
     make DESTDIR="${pkgdir}" install
     mv "${pkgdir}/lib" "${pkgdir}/usr/"
     sed -i "s+${srcdir}++" \
-        "${pkgdir}"/usr/src/zfs-*/${_kernfullpkgver}-ARCH/Module.symvers
+        "${pkgdir}"/usr/src/{spl,zfs}-*/${_kernfullpkgver}-ARCH/Module.symvers
 }
 
-# vim:set ts=4 sw=4 et:
+# vim: set ts=4 sts=4 sw=4 et:

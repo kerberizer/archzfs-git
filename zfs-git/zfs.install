@@ -1,5 +1,6 @@
 post_install() {
     check_initramfs
+    check_hostid
 }
 
 post_remove() {
@@ -8,6 +9,7 @@ post_remove() {
 
 post_upgrade() {
     check_initramfs
+    check_hostid
 }
 
 check_initramfs() {
@@ -28,3 +30,18 @@ check_initramfs() {
         echo '>>> "hooks" list and then regenerate the initial ramdisk.'
     fi
 }
+
+check_hostid() {
+    # Check /etc/hostid to see if it set to the sentinel value, see
+    # https://wiki.archlinux.org/index.php/ZFS for more information.
+    HOSTID=$(hostid)
+    if [ "0x$HOSTID" == "0xffffffff" ]; then
+        # Generate a new hostid
+        : >/etc/hostid
+        HOSTID=$(hostid)
+        # hostid is 4 byte little endian
+        printf $(echo -n $HOSTID | sed 's/\(..\)\(..\)\(..\)\(..\)/\\x\4\\x\3\\x\2\\x\1/') >/etc/hostid
+    fi
+}
+
+# vim: set ts=4 sts=4 sw=4 et:
