@@ -35,7 +35,7 @@ source=(
     'zfs-utils.bash-completion'
     'zfs-utils.initcpio.hook'
     'zfs-utils.initcpio.install'
-    'spl-utils.hostid'
+    'hostid.default'
 )
 sha512sums=(
     'SKIP'
@@ -80,7 +80,7 @@ package() {
         "${pkgdir}/usr/lib/initcpio/install/zfs"
     install -D -m 0644 "${srcdir}/zfs-utils.bash-completion" \
         "${pkgdir}/usr/share/bash-completion/completions/zfs"
-    install -D -m 0644 "${srcdir}/spl-utils.hostid" \
+    install -D -m 0644 "${srcdir}/hostid.default" \
         "${pkgdir}/etc/hostid"
 }
 
