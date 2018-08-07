@@ -1,46 +1,33 @@
 post_install() {
-    check_initramfs
     check_hostid
 }
 
 post_remove() {
-    check_initramfs 'remove'
+    check_initramfs
 }
 
 post_upgrade() {
-    check_initramfs
     check_hostid
 }
 
 check_initramfs() {
-    echo ">>> Updating module dependencies. Please wait ..."
-    # `uname -r` returns the current running kernel version, we need the
-    # currently installed kernel version.
-    KERNEL_VERSION=$(pacman -Qi linux | sed -n 2p | cut -d: -f2)
-    # For cases when the kernel version is 3.8, 3.9
-    LINUX_VER=$(echo $KERNEL_VERSION | cut -d- -f1)
-    if [ $(grep -o "\." <<<"$LINUX_VER" | wc -l) -eq 1 ]; then
-        KERNEL_VERSION="${LINUX_VER}.0-${KERNEL_VERSION:(-1)}"
-    fi
-    depmod $(basename $(find /usr/lib/modules -type d -iname $KERNEL_VERSION\*))
-    MK_CONF=$(grep -v '#' /etc/mkinitcpio.conf | grep zfs >/dev/null; echo $?);
-    if [[ $MK_CONF == '0' && $1 == 'remove' ]]; then
-        echo '>>> The ZFS packages have been removed, but "zfs" remains in the "hooks"'
-        echo '>>> list in mkinitcpio.conf! You will need to remove "zfs" from the '
-        echo '>>> "hooks" list and then regenerate the initial ramdisk.'
+    if $(grep -q '^[^#]*[()[:blank:]]zfs[()[:blank:]]' /etc/mkinitcpio.conf); then
+        echo '>>> The ZFS packages have been removed, but "zfs" remains in the "HOOKS"'
+        echo '>>> array in mkinitcpio.conf! You need to remove "zfs" from that array '
+        echo '>>> and regenerate the initial ramdisk.'
     fi
 }
 
 check_hostid() {
-    # Check /etc/hostid to see if it set to the sentinel value, see
-    # https://wiki.archlinux.org/index.php/ZFS for more information.
+    # Check if /etc/hostid is set to the sentinel value and regenerate it if necessary.
+    # For more information, see https://wiki.archlinux.org/index.php/ZFS
     HOSTID=$(hostid)
-    if [ "0x$HOSTID" == "0xffffffff" ]; then
+    if [ "0x${HOSTID}" == '0xffffffff' ]; then
         # Generate a new hostid
         : >/etc/hostid
         HOSTID=$(hostid)
         # hostid is 4 byte little endian
-        printf $(echo -n $HOSTID | sed 's/\(..\)\(..\)\(..\)\(..\)/\\x\4\\x\3\\x\2\\x\1/') >/etc/hostid
+        printf $(echo -n ${HOSTID} | sed 's/\(..\)\(..\)\(..\)\(..\)/\\x\4\\x\3\\x\2\\x\1/') >/etc/hostid
     fi
 }
 
