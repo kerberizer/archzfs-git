@@ -8,8 +8,7 @@ build() {
         zunicode \
         zcommon \
         zfs \
-        spl \
-        splat
+        spl
 
     map add_binary \
         fsck.zfs \
@@ -20,7 +19,6 @@ build() {
         zpool \
         zstreamdump \
         ztest \
-        splat \
         hostid \
         mount.zfs \
         /lib/udev/vdev_id \
