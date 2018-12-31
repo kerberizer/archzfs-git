@@ -1,8 +1,10 @@
 _kernpkgver='4.19.12.arch1-1'
 _kernver="${_kernpkgver%-*}"
 _kernpkgrel="${_kernpkgver##*-}"
-_kernfullpkgver=$( echo ${_kernpkgver} | \
-    sed 's|\(^[[:digit:]]\+\.[[:digit:]]\+\.[[:digit:]]\+\)\.\(arch[[:digit:]]\+-[[:digit:]]\+$\)|\1-\2|' )
+_kernfullpkgver=$(sed \
+                    -e 's|^\([[:digit:]]\+\.[[:digit:]]\+\)\.arch|\1.0-arch|' \
+                    -e 's|\.arch|-arch|' \
+                    <<<"${_kernpkgver}")
 
 pkgname=('zfs-git')
 pkgver=0.8.0.rc2.r40.g00f198de6_4.19.12.arch1.r1
@@ -64,4 +66,4 @@ package() {
         "${pkgdir}"/usr/src/{spl,zfs}-*/${_kernfullpkgver}-ARCH/Module.symvers
 }
 
-# vim: set ts=4 sts=4 sw=4 et:
+# vim: set ts=4 sts=4 sw=4 et ft=sh:
