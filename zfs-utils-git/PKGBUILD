@@ -15,6 +15,7 @@ optdepends=(
 )
 makedepends=(
     'git'
+    'python'
 )
 provides=(
     'zfs-utils'
