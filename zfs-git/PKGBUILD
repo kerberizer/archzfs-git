@@ -21,6 +21,7 @@ depends=(
 makedepends=(
     'git'
     "linux-headers=${_kernpkgver}"
+    'python'
 )
 provides=(
     'zfs'
