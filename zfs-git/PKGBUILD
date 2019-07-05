@@ -7,7 +7,7 @@ _kernfullpkgver=$(sed \
                     <<<"${_kernpkgver}")
 
 pkgname=('zfs-git')
-pkgver=0.8.0.r101.g3fab4d9e0_5.1.15.arch1.r1
+pkgver=0.8.0.r111.g6dbca94f0_5.1.15.arch1.r1
 pkgrel=1
 pkgdesc='Zettabyte File System kernel modules'
 arch=('x86_64')
