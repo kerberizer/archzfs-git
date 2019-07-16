@@ -14,5 +14,5 @@ systemctl preset \
 
 There is a publicly available [repository](https://repos.uni-plovdiv.net/archlinux/archzfs-git) with binary packages for the `x86_64` architecture, but it is also provided **as is**. The current package versions in the repo are as follows:
 * `grub-git-2.04.r9.g8f6843ce6-1`
-* `zfs-git-0.8.0.r124.gd230a65c3_5.2.arch2.r1-1`
-* `zfs-utils-git-0.8.0.r124.gd230a65c3_5.2.arch2.r1-1`
+* `zfs-git-0.8.0.r131.gdf834a7cc_5.2.1.arch1.r1-1`
+* `zfs-utils-git-0.8.0.r131.gdf834a7cc_5.2.1.arch1.r1-1`
