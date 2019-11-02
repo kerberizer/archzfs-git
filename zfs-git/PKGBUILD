@@ -1,13 +1,11 @@
-_kernpkgver='5.3.7.arch1-2'
-_kernver="${_kernpkgver%-*}"
-_kernpkgrel="${_kernpkgver##*-}"
-_kernfullpkgver=$(sed \
-                    -e 's|^\([[:digit:]]\+\.[[:digit:]]\+\)\.arch|\1.0-arch|' \
-                    -e 's|\.arch|-arch|' \
-                    <<<"${_kernpkgver}")
+_kernel_package_version='5.3.8.1-1'
+_kernel_package_release="${_kernel_package_version##*-}"
+_kernel_archlinux_version="${_kernel_package_version%-*}"
+_kernel_archlinux_minor="${_kernel_archlinux_version##*.}"
+_kernel_base_version="${_kernel_archlinux_version%.*}"
 
 pkgname=('zfs-git')
-pkgver=0.8.0.r361.ge35704647_5.3.7.arch1.r2
+pkgver=0.8.0.r380.gae38e0096_5.3.8.1.r1
 pkgrel=1
 pkgdesc='Zettabyte File System kernel modules'
 arch=('x86_64')
@@ -16,11 +14,11 @@ license=('CDDL')
 groups=('archzfs-git')
 depends=(
     'zfs-utils-git'
-    "linux=${_kernpkgver}"
+    "linux=${_kernel_package_version}"
 )
 makedepends=(
     'git'
-    "linux-headers=${_kernpkgver}"
+    "linux-headers=${_kernel_package_version}"
     'python'
 )
 provides=(
@@ -45,17 +43,18 @@ sha512sums=(
 pkgver() {
     cd "${srcdir}/zfs"
     # cutting off 'zfs-' prefix that presents in the git tag
-    echo $(git describe --long | sed -r \
-        's/^zfs-//;s/([^-]*-g)/r\1/;s/-/./g')_${_kernver}.r${_kernpkgrel}
+    _zfs_version="$(git describe --long | sed -r 's/^zfs-//;s/([^-]*-g)/r\1/;s/-/./g')"
+    echo "${_zfs_version}_${_kernel_archlinux_version}.r${_kernel_package_release}"
 }
 
 build() {
-    _kernbuildpath="/usr/lib/modules/${_kernfullpkgver}-ARCH/build"
+    _kernel_build_path="/usr/lib/modules/${_kernel_base_version}-arch${_kernel_archlinux_minor}-"
+    _kernel_build_path+="${_kernel_package_release}/build"
     cd "${srcdir}/zfs"
     ./autogen.sh
     ./configure --prefix=/usr \
                 --with-config=kernel \
-                --with-linux=${_kernbuildpath}
+                --with-linux=${_kernel_build_path}
     make
 }
 
@@ -63,8 +62,7 @@ package() {
     cd "${srcdir}/zfs"
     make DESTDIR="${pkgdir}" install
     mv "${pkgdir}/lib" "${pkgdir}/usr/"
-    sed -i "s+${srcdir}++" \
-        "${pkgdir}"/usr/src/{spl,zfs}-*/${_kernfullpkgver}-ARCH/Module.symvers
+    sed -i "s|${srcdir}||" "${pkgdir}"/usr/src/zfs-*/*/Module.symvers
 }
 
-# vim: set ts=4 sts=4 sw=4 et ft=sh:
+# vim: set ts=4 sts=4 sw=4 tw=100 et ft=sh:
