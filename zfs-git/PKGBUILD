@@ -5,7 +5,7 @@ _kernel_archlinux_minor="${_kernel_archlinux_version##*.}"
 _kernel_base_version="${_kernel_archlinux_version%.*}"
 
 pkgname=('zfs-git')
-pkgver=0.8.0.r400.g64c77c4ba_5.3.11.1.r1
+pkgver=0.8.0.r402.g41e1aa2a0_5.3.11.1.r1
 pkgrel=1
 pkgdesc='Zettabyte File System kernel modules'
 arch=('x86_64')
