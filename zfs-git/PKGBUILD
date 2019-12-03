@@ -48,7 +48,7 @@ pkgver() {
 }
 
 build() {
-    _kernel_build_path="/usr/lib/modules/${_kernel_base_version}-arch${_kernel_archlinux_minor}-"
+    _kernel_build_path="/usr/lib/modules/${_kernel_base_version}-${_kernel_archlinux_minor}-"
     _kernel_build_path+="${_kernel_package_release}/build"
     cd "${srcdir}/zfs"
     ./autogen.sh
