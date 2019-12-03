@@ -1,9 +1,9 @@
-_kernel_package_version='5.3.13.1-1'
+_kernel_package_version='5.4.1.arch1-1'
 _kernel_package_release="${_kernel_package_version##*-}"
 _kernel_archlinux_version="${_kernel_package_version%-*}"
 
 pkgname=('zfs-utils-git')
-pkgver=0.8.0.r408.g0c4681380_5.3.13.1.r1
+pkgver=0.8.0.r426.ge69bb31b7_5.4.1.arch1.r1
 pkgrel=1
 pkgdesc='Zettabyte File System support files'
 arch=('x86_64')
