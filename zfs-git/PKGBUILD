@@ -1,11 +1,11 @@
-_kernel_package_version='5.4.6.arch1-1'
+_kernel_package_version='5.4.6.arch3-1'
 _kernel_package_release="${_kernel_package_version##*-}"
 _kernel_archlinux_version="${_kernel_package_version%-*}"
 _kernel_archlinux_minor="${_kernel_archlinux_version##*.}"
 _kernel_base_version="${_kernel_archlinux_version%.*}"
 
 pkgname=('zfs-git')
-pkgver=0.8.0.r483.gc587b2c7d_5.4.6.arch1.r1
+pkgver=0.8.0.r483.gc587b2c7d_5.4.6.arch3.r1
 pkgrel=1
 pkgdesc='Zettabyte File System kernel modules'
 arch=('x86_64')
